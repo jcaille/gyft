@@ -10,3 +10,26 @@ class GiftList(models.Model):
 
     def __str__(self):
         return f"<GiftList: {self.title}>"
+
+class Gift(models.Model):
+	title = models.CharField(max_length = 120)
+	description = models.TextField()
+	cost = models.IntegerField()
+
+	gift_list = models.ForeignKey(GiftList, on_delete = models.CASCADE)
+
+	completed = models.BooleanField(default = False)
+	completed_on = models.DateTimeField(null = True)
+	completed_by = models.ForeignKey(User, 
+		on_delete = models.CASCADE, 
+		null = True, 
+		related_name = "completed_by")
+	
+
+	created_on = models.DateTimeField(auto_now_add=True)
+	created_by = models.ForeignKey(User, 
+		on_delete = models.CASCADE, 
+		related_name = "created_by")
+
+	def __str__(self):
+		return f"<Gift: {self.title}>"

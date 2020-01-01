@@ -21,6 +21,7 @@ from gyft import views
 
 router = routers.DefaultRouter()
 router.register(r'gift-lists', views.GiftListView, 'gift')
+router.register(r'gifts', views.GiftView, 'gift')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

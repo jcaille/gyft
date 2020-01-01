@@ -1,9 +1,14 @@
 from django.contrib import admin
-from .models import GiftList
+from .models import Gift, GiftList
 
 # Register your models here.
 
-class GiftAdmin(admin.ModelAdmin):
+class GiftListAdmin(admin.ModelAdmin):
 	list_display = ('title', 'description', 'recipient')
 
-admin.site.register(GiftList, GiftAdmin)
+class GiftAdmin(admin.ModelAdmin):
+	pass
+
+
+admin.site.register(GiftList, GiftListAdmin)
+admin.site.register(Gift, GiftAdmin)
