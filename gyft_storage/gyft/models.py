@@ -8,6 +8,11 @@ class GiftList(models.Model):
     description = models.TextField()
     recipient = models.ForeignKey(User, on_delete = models.CASCADE)
 
+    created_on = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(User, 
+        on_delete = models.CASCADE, 
+        related_name = "gift_list_created_by")
+
     def __str__(self):
         return f"<GiftList: {self.title}>"
 

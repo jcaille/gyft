@@ -18,11 +18,12 @@ def create_user(username):
     print(f" - User {user} - was created")
     return user
 
-def create_gift_lists(title, description, recipient):
+def create_gift_lists(title, description, recipient, creator):
     data, created = GiftList.objects.get_or_create(
         title = title, 
         description = description, 
-        recipient = recipient)
+        recipient = recipient,
+        created_by = creator)
     print(f" - {data} - was created {created}")
     return data
 
@@ -45,8 +46,8 @@ def populate():
     corinne = create_user("Corinne")
     soraya = create_user("Soraya")
 
-    christmas: GiftList = create_gift_lists("Jean's Christmas", "Let's get him some presents", jean)
-    a_birthday = create_gift_lists("Alida's birthday", "A new list for things she wishes for", alida)
+    christmas: GiftList = create_gift_lists("Jean's Christmas", "Let's get him some presents", jean, alida)
+    a_birthday = create_gift_lists("Alida's birthday", "A new list for things she wishes for", alida, soraya)
 
     create_gift("Watch", "A nice watch", 200, christmas, alida)
     create_gift("Pokemon Shield", "On switch please", 60, christmas, soraya)
