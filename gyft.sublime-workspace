@@ -1,0 +1,509 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"re",
+				"readline\tfunction"
+			],
+			[
+				"std",
+				"stdin\tinstance"
+			],
+			[
+				"if",
+				"ifmain\tif __name__ == '__main__'"
+			],
+			[
+				"inser",
+				"insert_bst"
+			],
+			[
+				"insert",
+				"insertion"
+			],
+			[
+				"he",
+				"head_indexes\tstatement"
+			],
+			[
+				"auto",
+				"auto_now\tFalse"
+			],
+			[
+				"HttpRespon",
+				"HttpResponseRedirect\tclass"
+			],
+			[
+				"print",
+				"print_bytearray"
+			],
+			[
+				"rec",
+				"recv"
+			],
+			[
+				"recv",
+				"recv_buffer"
+			],
+			[
+				"UDP",
+				"UDP_PORT"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"pri",
+				"priority"
+			],
+			[
+				"priori",
+				"priority"
+			],
+			[
+				"shared",
+				"shared_id"
+			],
+			[
+				"avail",
+				"available_testers"
+			],
+			[
+				"test_",
+				"test_coverage"
+			],
+			[
+				"attri",
+				"attributed_test"
+			],
+			[
+				"ex",
+				"exclude"
+			],
+			[
+				"capa",
+				"capabilities"
+			],
+			[
+				"test",
+				"test_capacity"
+			],
+			[
+				"capaci",
+				"capacity"
+			],
+			[
+				"expe",
+				"expected_coverage"
+			],
+			[
+				"no",
+				"not_fullfilled"
+			],
+			[
+				"de",
+				"device"
+			],
+			[
+				"availb",
+				"available_definitions"
+			],
+			[
+				"requ",
+				"requirement_coverage"
+			],
+			[
+				"require",
+				"requirement_coverate"
+			],
+			[
+				"aai",
+				"available_devices"
+			],
+			[
+				"max_",
+				"max_device"
+			],
+			[
+				"max",
+				"max_score"
+			],
+			[
+				"capabil",
+				"capability_coverage"
+			],
+			[
+				"requi",
+				"requirements"
+			],
+			[
+				"prio",
+				"priorities"
+			],
+			[
+				"priorit",
+				"priorities"
+			],
+			[
+				"Test",
+				"TestDefinition"
+			],
+			[
+				"team_i",
+				"team_detail"
+			],
+			[
+				"app_",
+				"app_context"
+			],
+			[
+				"ap",
+				"apps"
+			],
+			[
+				"on",
+				"on_delete"
+			],
+			[
+				"C",
+				"CASCADE"
+			],
+			[
+				"Tes",
+				"Tester"
+			],
+			[
+				"Al",
+				"ALWAYS"
+			],
+			[
+				"mig",
+				"migrations_folder"
+			],
+			[
+				"CharFil",
+				"CharField"
+			],
+			[
+				"av",
+				"active_dilatation"
+			],
+			[
+				"ac",
+				"actual_res"
+			],
+			[
+				"acti",
+				"active_dilatation"
+			],
+			[
+				"min",
+				"min_hold_time"
+			],
+			[
+				"relea",
+				"release_ok"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 107.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"json",
+				"JSON Reindent: reindent file or selection"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"bash",
+				"Set Syntax: Bourne Again Shell (bash)"
+			],
+			[
+				"theme",
+				"UI: Select Color Scheme"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"python",
+				"Set Syntax: Python (Django)"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"html",
+				"Snippet: html"
+			],
+			[
+				"align",
+				"Package Control: Install Package"
+			],
+			[
+				"jin",
+				"Set Syntax: HTML (Jinja2)"
+			],
+			[
+				"ji",
+				"Set Syntax: Jinja2"
+			],
+			[
+				"ht",
+				"Set Syntax: HTML (Tcl)"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/jean/devel/gyft"
+	],
+	"file_history":
+	[
+		"/Users/jean/devel/gyft/gyft_storage/gyft_storage/settings.py",
+		"/Users/jean/devel/gyft/gyft_storage/gyft/models.py",
+		"/Users/jean/devel/gyft/gyft.sublime-project",
+		"/Users/jean/.profile",
+		"/Users/jean/.profile~",
+		"/Users/jean/Dropbox (Personal)/4_PAPIERS/Impots/2019 sur 2018/Notes",
+		"/Users/jean/Downloads/tradesdownload.csv",
+		"/Users/jean/Downloads/noun_1197139_cc.svg",
+		"/Users/jean/Downloads/noun_534398_cc.svg",
+		"/Users/jean/Dropbox (Personal)/4_PAPIERS/Odessa/Location/Recherche Juillet 2017/Annonce.txt",
+		"/Users/jean/Dropbox (Personal)/4_PAPIERS/Impots/2017 sur 2016/notes.txt",
+		"/Users/jean/Dropbox (Personal)/4_PAPIERS/Impots/2018 sur 2017/notes.txt",
+		"/notes.txt",
+		"/Users/jean/Downloads/Unknown.svg",
+		"/Users/jean/devel/lol.py",
+		"/Users/jean/Dropbox (Personal)/2_ON_OFF/2016-2017/Facebook/2017_02_16_Texts.txt",
+		"/Users/jean/devel/stack.py",
+		"/Users/jean/devel/tpg/core/models.py",
+		"/Users/jean/devel/tpg/core/templates/core/team_detail.html",
+		"/Users/jean/Envs/tpg/lib/python2.7/site-packages/django/db/models/fields/__init__.py",
+		"/Users/jean/devel/tpg/tpg/urls.py",
+		"/Users/jean/devel/milight/limitlessled/bridge.py",
+		"/Users/jean/devel/milight/intercept.log",
+		"/Users/jean/devel/tpg/core/static/core/intercept.log",
+		"/Users/jean/devel/tpg/core/static/core/test.py",
+		"/Users/jean/devel/tpg/core/templates/core/index.html",
+		"/Users/jean/devel/tpg/core/apps.py",
+		"/Users/jean/devel/tpg/core/statics/style.css",
+		"/Users/jean/devel/tpg/core/management/__init__.py",
+		"/Users/jean/devel/tpg/core/management/commands/__init__.py",
+		"/Users/jean/devel/tpg/core/urls.py",
+		"/Users/jean/devel/tpg/core/views.py",
+		"/Users/jean/devel/tpg/core/templates/core/team_list.html",
+		"/Users/jean/devel/tpg/core/templates/core/team_form.html",
+		"/Users/jean/devel/tpg/user_stories.txt",
+		"/Users/jean/devel/tpg/core/admin.py",
+		"/Users/jean/devel/tpg/tpg/settings.py",
+		"/Users/jean/devel/tpg/helper.py",
+		"/Users/jean/devel/tpg/core/scripts/helper.py",
+		"/Users/jean/devel/tpg/core/scripts/__init__.py",
+		"/Users/jean/devel/tpg/__init__.py",
+		"/Users/jean/Dropbox (Personal)/1_CURRENT/Odessa/TestPlan.mkdown",
+		"/Users/jean/devel/audio_ducking.py",
+		"/Users/jean/Dropbox (Personal)/1_CURRENT/Odessa/Gestion Odessa - Location",
+		"/Users/jean/Dropbox (Personal)/1_CURRENT/CV/cv.tex"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 252.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "gyft.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"sublime",
+				"gyft.sublime-project"
+			],
+			[
+				"view",
+				"core/views.py"
+			],
+			[
+				"ul",
+				"core/urls.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 204.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
