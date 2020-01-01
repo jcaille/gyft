@@ -13,20 +13,12 @@ class GiftListView(viewsets.ModelViewSet):
     serializer_class = GiftListSerialiser
     queryset = GiftList.objects.all()
 
-    @action(detail=True)
-    def details(self, request, pk=None):
+    @action(detail=True, url_path="all-gifts")
+    def all_gifts(self, request, pk=None):
         gift_list = self.get_object()
-        gift_list_serializer = GiftListSerialiser(gift_list)
-        gift_list_data = gift_list_serializer.data
-
         gifts = gift_list.gift_set.all()
         gift_serializer = GiftSerialiser(gifts, many = True)
-        gifts_data = gift_serializer.data
-        
-        return Response({
-            "gift_list": gift_list_data,
-            "gifts": gifts_data
-        })
+        return Response(gift_serializer.data)
 
 
 class GiftView(viewsets.ModelViewSet):
