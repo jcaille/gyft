@@ -16,25 +16,29 @@ def create_super_user():
 def create_user(username):
     user = User.objects.create_user(username, email=None, password=None)
     print(f" - User {user} - was created")
+    return user
 
-def create_gift_lists(title, description):
-    data, created = GiftList.objects.get_or_create(title = title, description = description)
+def create_gift_lists(title, description, recipient):
+    data, created = GiftList.objects.get_or_create(
+        title = title, 
+        description = description, 
+        recipient = recipient)
     print(f" - {data} - was created {created}")
     return data
 
 def populate():
     create_super_user()
 
-    create_user("Jean")
-    create_user("Pierre")
-    create_user("Alida")
-    create_user("Corinne")
-    create_user("Bertrand")
-    create_user("Soraya")
+    jean = create_user("Jean")
+    pierre = create_user("Pierre")
+    alida = create_user("Alida")
+    corinne = create_user("Corinne")
+    bertrand = create_user("Bertrand")
+    soraya = create_user("Soraya")
 
-    create_gift_lists("Initial gift list", "This is a description for the first gift list")
-    create_gift_lists("Another gift list", "This one has a short description")
-    create_gift_lists("A third list of gifts", "")
+    create_gift_lists("Initial gift list", "This is a description for the first gift list", jean)
+    create_gift_lists("Another gift list", "This one has a short description", alida)
+    create_gift_lists("A third list of gifts", "", soraya)
 
 if __name__ == "__main__":
     

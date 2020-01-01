@@ -4,4 +4,4 @@ from .models import GiftList
 class GiftListSerialiser(serializers.ModelSerializer):
 	class Meta:
 		model = GiftList
-		fields = ('id', 'title', 'description')
+		fields = ('id', 'title', 'description', 'recipient')
