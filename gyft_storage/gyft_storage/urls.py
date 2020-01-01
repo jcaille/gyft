@@ -20,8 +20,8 @@ from rest_framework import routers
 from gyft import views
 
 router = routers.DefaultRouter()
-router.register(r'gift-lists', views.GiftListView, 'gift')
-router.register(r'gifts', views.GiftView, 'gift')
+router.register(r'gift-lists', views.GiftListView)
+router.register(r'gifts', views.GiftView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

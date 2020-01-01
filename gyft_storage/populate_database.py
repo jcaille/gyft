@@ -45,7 +45,7 @@ def populate():
     corinne = create_user("Corinne")
     soraya = create_user("Soraya")
 
-    christmas = create_gift_lists("Jean's Christmas", "Let's get him some presents", jean)
+    christmas: GiftList = create_gift_lists("Jean's Christmas", "Let's get him some presents", jean)
     a_birthday = create_gift_lists("Alida's birthday", "A new list for things she wishes for", alida)
 
     create_gift("Watch", "A nice watch", 200, christmas, alida)
@@ -56,6 +56,10 @@ def populate():
     create_gift("Notebook", "With personalized photos", 15, a_birthday, jean)
     create_gift("Loto des Senteurs", "", 25, a_birthday, alida)
     create_gift("Kettle", "She loves tea !", 20, a_birthday, soraya)
+
+    print("--- Testing ---")
+    print(f"Total cost for christmas : {christmas.total_cost}")
+    print(f"Number of presents for christmas : {christmas.gift_count}")
 
 if __name__ == "__main__":
     

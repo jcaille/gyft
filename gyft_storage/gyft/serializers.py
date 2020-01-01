@@ -15,7 +15,7 @@ class GiftListSerialiser(serializers.ModelSerializer):
 
 	class Meta:
 		model = GiftList
-		fields = ('id', 'title', 'description', 'recipient')
+		fields = ('id', 'title', 'description', 'recipient', 'total_cost', 'gift_count')
 
 class GiftSerialiser(serializers.ModelSerializer):
 
