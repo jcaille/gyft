@@ -2,32 +2,27 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from .models import GiftList, Gift
 
-class UserSerialiser(serializers.ModelSerializer):
-	
-	class Meta:
-		model = User
-		fields = ('id', 'username', 'first_name', 'last_name', 'email')
-
-class GiftListSerialiser(serializers.ModelSerializer):
-
-	recipient = UserSerialiser(read_only = True)
-	created_by = UserSerialiser(read_only = True)
-
+class GiftListOwnerSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = GiftList
 		fields = '__all__'
 
-class CreateGiftListSerialiser(serializers.ModelSerializer):
-
+class GiftListContributorSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = GiftList
-		fields = ('id', 'title', 'description', 'recipient')
+		exclude = ['owner_link', 'recipient_link']
 
-class GiftSerialiser(serializers.ModelSerializer):
+class GiftListRecipientSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = GiftList
+		exclude = ['owner_link', 'contributor_link']
 
-	created_by = UserSerialiser(read_only = True)
-	completed_by = UserSerialiser(read_only = True)
+class GiftListCreatorSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = GiftList
+		fields = ['uuid', 'title', 'description', 'recipient', 'created_by']
 
+class GiftSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Gift
 		fields = "__all__"

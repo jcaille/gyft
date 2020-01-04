@@ -22,8 +22,8 @@ def create_gift_lists(title, description, recipient, creator):
     data, created = GiftList.objects.get_or_create(
         title = title, 
         description = description, 
-        recipient = recipient,
-        created_by = creator)
+        recipient = recipient.username,
+        created_by = creator.username)
     print(f" - {data} - was created {created}")
     return data
 
@@ -33,7 +33,7 @@ def create_gift(title, description, cost, gift_list, creator):
         description=description,
         cost=cost,
         gift_list=gift_list,
-        created_by=creator)
+        created_by=creator.username)
 
     print(f" - {data} - was created {created}")
     return data
