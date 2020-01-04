@@ -21,6 +21,11 @@ from gyft import views
 
 router = routers.DefaultRouter()
 router.register(r'gift-lists', views.GiftListView)
+
+router.register(r'gift-lists/owner', views.GiftListOwnerView)
+router.register(r'gift-lists/contributor', views.GiftListContributorView)
+router.register(r'gift-lists/recipient', views.GiftListRecipientView)
+
 router.register(r'gifts', views.GiftView)
 
 urlpatterns = [

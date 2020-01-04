@@ -7,10 +7,18 @@ class GiftListOwnerSerializer(serializers.ModelSerializer):
 		model = GiftList
 		fields = '__all__'
 
+class GiftListOwnerUpdateSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = GiftList
+		fields = '__all__'
+		read_only_fields = ['created_by']
+
+
 class GiftListContributorSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = GiftList
 		exclude = ['owner_link', 'recipient_link']
+
 
 class GiftListRecipientSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -27,3 +35,8 @@ class GiftSerializer(serializers.ModelSerializer):
 		model = Gift
 		fields = "__all__"
 		read_only_fields = ["completed", "completed_by", "completed_on"]
+
+class GiftCompleteSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Gift
+		fields = ["completed_by"]
