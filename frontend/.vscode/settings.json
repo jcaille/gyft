@@ -1,0 +1,5 @@
+{
+    "tslint.suppressWhileTypeErrorsPresent": true,
+    "tslint.configFile": "tslint.json",
+    "editor.formatOnSave": true
+}
