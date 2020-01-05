@@ -1,4 +1,4 @@
-import { Button, FormGroup, InputGroup, Spinner, TextArea } from "@blueprintjs/core";
+import { Button, Callout, FormGroup, InputGroup, Intent, Spinner, TextArea } from "@blueprintjs/core";
 import React from "react";
 import { GiftListDatasource } from "./datasource";
 import { IGiftListCreationPayload } from "./types";
@@ -103,14 +103,19 @@ export class GiftListCreator extends React.Component<IGiftListCreatorProps, IGif
                         value={this.state.created_by}
                         disabled={disabled} />
                 </FormGroup>
+                <div className="gift-creator-validation-row">
+                    {/* <Callout intent={Intent.WARNING}>
+                        There is a problem with the form
+                    </Callout> */}
+                    <Button
+                        type="submit"
+                        disabled={!this.isFormValid() || disabled}
+                        loading={currentState === CreatorState.SUBMITTED}
+                    >
+                        Create a gift list for {recipient || "..."}
+                    </Button>
+                </div>
 
-                <Button
-                    type="submit"
-                    disabled={!this.isFormValid() || disabled}
-                    loading={currentState === CreatorState.SUBMITTED}
-                >
-                    Create a gift list for {recipient || "..."}
-                </Button>
             </form>
         </div >;
     }
@@ -134,8 +139,11 @@ export class GiftListCreator extends React.Component<IGiftListCreatorProps, IGif
     }
 
     private isFormValid() {
-        const { recipient, title, created_by } = this.state;
-        return recipient.trim().length > 0 && title.trim().length > 0 && created_by.trim().length > 0;
+        const { recipient, title, created_by, description } = this.state;
+        return recipient.trim().length > 0
+            && title.trim().length > 0
+            && created_by.trim().length > 0
+            && description.trim().length > 0;
     }
 
     private submit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -149,7 +157,7 @@ export class GiftListCreator extends React.Component<IGiftListCreatorProps, IGif
             recipient,
             title,
         };
-        this.props.datasource.createNewGiftList(payload)
+        datasource.createNewGiftList(payload)
             .then((data) => {
                 console.log(data);
             })
