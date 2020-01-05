@@ -20,6 +20,13 @@ export interface ICompleteGift extends IGiftBase {
 
 export type IGift = IIncompleteGift | ICompleteGift;
 
+export interface IGiftListCreationPayload {
+    title: string;
+    recipient: string;
+    description: string;
+    created_by: string;
+}
+
 export interface IGiftList {
     uuid: string;
     owner_link?: string;
@@ -35,5 +42,5 @@ export interface IGiftList {
 }
 
 export function isCompletedGift(x: IGift): x is ICompleteGift {
-    return x.completed
+    return x.completed;
 }

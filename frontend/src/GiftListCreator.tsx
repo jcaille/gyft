@@ -1,5 +1,7 @@
-import { Button, FormGroup, InputGroup, TextArea, Spinner } from "@blueprintjs/core";
+import { Button, FormGroup, InputGroup, Spinner, TextArea } from "@blueprintjs/core";
 import React from "react";
+import { GiftListDatasource } from "./datasource";
+import { IGiftListCreationPayload } from "./types";
 
 enum CreatorState {
     PROMPTING,
@@ -12,11 +14,11 @@ interface IGiftListCreatorState {
     recipient: string;
     title: string;
     description: string;
-    creator: string;
+    created_by: string;
 }
 
 interface IGiftListCreatorProps {
-
+    datasource: GiftListDatasource;
 }
 
 export class GiftListCreator extends React.Component<IGiftListCreatorProps, IGiftListCreatorState> {
@@ -24,7 +26,7 @@ export class GiftListCreator extends React.Component<IGiftListCreatorProps, IGif
     constructor(props: IGiftListCreatorProps) {
         super(props);
         this.state = {
-            creator: "",
+            created_by: "",
             currentState: CreatorState.FORM,
             description: "",
             recipient: "",
@@ -57,7 +59,7 @@ export class GiftListCreator extends React.Component<IGiftListCreatorProps, IGif
         const disabled = currentState === CreatorState.SUBMITTED;
         const buttonContent = currentState === CreatorState.FORM ?
             `Create a gift list for ${recipient || "..."}` :
-            <Spinner />
+            <Spinner />;
         return <div>
             <form onSubmit={this.submit}>
                 <FormGroup
@@ -98,7 +100,7 @@ export class GiftListCreator extends React.Component<IGiftListCreatorProps, IGif
                         id="creator-input"
                         placeholder="Alida"
                         onChange={this.handleCreatorChange}
-                        value={this.state.creator}
+                        value={this.state.created_by}
                         disabled={disabled} />
                 </FormGroup>
 
@@ -113,14 +115,10 @@ export class GiftListCreator extends React.Component<IGiftListCreatorProps, IGif
         </div >;
     }
 
-    public renderSpinner() {
-        return <Spinner />;
-    }
-
     /* Form handling */
 
     private handleCreatorChange = (event: React.FormEvent<HTMLInputElement>) => {
-        this.setState({ creator: (event.target as HTMLInputElement).value });
+        this.setState({ created_by: (event.target as HTMLInputElement).value });
     }
 
     private handleRecipientChange = (event: React.FormEvent<HTMLInputElement>) => {
@@ -136,13 +134,30 @@ export class GiftListCreator extends React.Component<IGiftListCreatorProps, IGif
     }
 
     private isFormValid() {
-        const { recipient, title, creator } = this.state;
-        return recipient.trim().length > 0 && title.trim().length > 0 && creator.trim().length > 0;
+        const { recipient, title, created_by } = this.state;
+        return recipient.trim().length > 0 && title.trim().length > 0 && created_by.trim().length > 0;
     }
 
     private submit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        const { recipient, title, created_by, description } = this.state;
+        const { datasource } = this.props;
         this.setState({ currentState: CreatorState.SUBMITTED });
-        console.log(this.state);
+        const payload: IGiftListCreationPayload = {
+            created_by,
+            description,
+            recipient,
+            title,
+        };
+        this.props.datasource.createNewGiftList(payload)
+            .then((data) => {
+                console.log(data);
+            })
+            .catch(
+                (error) => {
+                    console.log(error);
+                    this.setState({ currentState: CreatorState.FORM });
+                },
+            );
     }
 }
