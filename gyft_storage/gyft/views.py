@@ -13,14 +13,6 @@ import uuid
 
 # Create your views here.
 
-def is_uuid(pk):
-    input_form = 'int' if isinstance(pk, int) else 'hex'
-    try:
-        value = uuid.UUID(**{input_form: pk})
-        return True
-    except (AttributeError, ValueError):
-        return False
-
 class IsAdminUserOrReadOnly(BasePermission):
     """
     Allows access only to admin users.
@@ -70,6 +62,8 @@ class GiftListView(viewsets.ModelViewSet):
 
     def get_serializer_class(self):
         if self.request.user.is_staff:
+            return serializers.GiftListOwnerSerializer
+        if self.action == 'create':
             return serializers.GiftListOwnerSerializer
         return self.serializer_class
 
