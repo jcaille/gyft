@@ -1,17 +1,63 @@
 import React from "react";
-import { useRouteMatch, withRouter, RouteComponentProps } from "react-router-dom";
-
+import { RouteComponentProps, withRouter } from "react-router-dom";
+import { GiftListTitle } from "../components/giftListTitle";
+import { GiftListDatasource } from "../datasource";
+import { IGiftList } from "../types";
+import { errorOf, loadedOf, LOADING, LoadingOr } from "../utils/loading";
 interface IManagePageParameters {
     slug: string;
 }
 
-type IManagePageProps = RouteComponentProps<IManagePageParameters>
+interface IManagePageOwnProps {
+    datasource: GiftListDatasource;
+}
 
-class UnconnectedManagePage extends React.Component<IManagePageProps> {
+type IManagePageProps = RouteComponentProps<IManagePageParameters> & IManagePageOwnProps;
+
+interface IManagePageState {
+    giftList: LoadingOr<IGiftList>;
+}
+
+class UnconnectedManagePage extends React.Component<IManagePageProps, IManagePageState> {
+
+    public constructor(props: IManagePageProps) {
+        super(props);
+        this.state = {
+            giftList: LOADING,
+        };
+    }
+
+    public async componentDidMount() {
+        this.loadGiftList();
+    }
+
+    public async componentDidUpdate(prevProps: IManagePageProps) {
+        if (this.props !== prevProps) {
+            // The slug has changed - let's reload the data
+            this.loadGiftList();
+        }
+    }
+
     public render() {
-        const params = this.props.match.params;
-        const slug = params.slug;
-        return <h2> This is the manage page for {params.slug} ! </h2>;
+        const { match } = this.props;
+        const { giftList } = this.state;
+        const slug = match.params.slug;
+        return (
+            <div>
+                <GiftListTitle giftList={giftList} />
+            </div>
+        );
+    }
+
+    private async loadGiftList() {
+        const { datasource, match } = this.props;
+        this.setState({ giftList: LOADING });
+        try {
+            const giftList = await datasource.getGiftListForOwner(match.params.slug);
+            this.setState({ giftList: loadedOf(giftList) });
+        } catch (e) {
+            this.setState({ giftList: errorOf("Error loading the requested Gift list") });
+        }
     }
 }
 
