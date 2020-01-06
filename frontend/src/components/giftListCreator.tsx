@@ -1,7 +1,7 @@
-import { Button, Callout, FormGroup, InputGroup, Intent, Spinner, TextArea } from "@blueprintjs/core";
+import { Button, FormGroup, InputGroup, Spinner, TextArea } from "@blueprintjs/core";
 import React from "react";
-import { GiftListDatasource } from "./datasource";
-import { IGiftListCreationPayload } from "./types";
+import { GiftListDatasource } from "../datasource";
+import { IGiftListCreationPayload } from "../types";
 
 enum CreatorState {
     PROMPTING,
