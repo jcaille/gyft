@@ -2,9 +2,11 @@ import { H1 } from "@blueprintjs/core";
 import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import { GiftListDatasource } from "./datasource";
-import { Homepage } from "./pages/homepage"
+import { Homepage } from "./pages/homepage";
+import { ManagePage } from "./pages/manage";
 class App extends React.Component {
 
   private datasource = new GiftListDatasource("http://localhost:8000");
@@ -13,7 +15,16 @@ class App extends React.Component {
     return (
       <div className="App bp3-dark">
         <H1>GYFT</H1>
-        <Homepage datasource={this.datasource} />
+        <Router>
+          <Switch>
+            <Route path="/manage/:slug([A-Za-z0-9]{12})">
+              <ManagePage />
+            </Route>
+            <Route path="/">
+              <Homepage datasource={this.datasource} />
+            </Route>
+          </Switch>
+        </Router>
       </div >
     );
 
