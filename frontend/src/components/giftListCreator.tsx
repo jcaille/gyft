@@ -2,11 +2,13 @@ import { Button, FormGroup, InputGroup, Spinner, TextArea } from "@blueprintjs/c
 import React from "react";
 import { GiftListDatasource } from "../datasource";
 import { IGiftListCreationPayload } from "../types";
+import { Redirect } from "react-router";
 
 enum CreatorState {
     PROMPTING,
     FORM,
     SUBMITTED,
+    REDIRECT,
 }
 
 interface IGiftListCreatorState {
@@ -15,6 +17,7 @@ interface IGiftListCreatorState {
     title: string;
     description: string;
     created_by: string;
+    owner_link?: string;
 }
 
 interface IGiftListCreatorProps {
@@ -39,6 +42,10 @@ export class GiftListCreator extends React.Component<IGiftListCreatorProps, IGif
         switch (this.state.currentState) {
             case CreatorState.PROMPTING:
                 content = this.renderButton();
+                break;
+            case CreatorState.REDIRECT:
+                console.log("REDIRECT !!!")
+                content = <Redirect to={`/manage/${this.state.owner_link}/`} push={true} />
                 break;
             default:
                 content = this.renderForm();
@@ -146,7 +153,7 @@ export class GiftListCreator extends React.Component<IGiftListCreatorProps, IGif
             && description.trim().length > 0;
     }
 
-    private submit = (event: React.FormEvent<HTMLFormElement>) => {
+    private submit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const { recipient, title, created_by, description } = this.state;
         const { datasource } = this.props;
@@ -157,15 +164,14 @@ export class GiftListCreator extends React.Component<IGiftListCreatorProps, IGif
             recipient,
             title,
         };
-        datasource.createNewGiftList(payload)
-            .then((data) => {
-                console.log(data);
-            })
-            .catch(
-                (error) => {
-                    console.log(error);
-                    this.setState({ currentState: CreatorState.FORM });
-                },
-            );
+        const data = await datasource.createNewGiftList(payload);
+        console.log("Got data")
+        console.log(data)
+        this.setState({
+            currentState: CreatorState.REDIRECT,
+            owner_link: data.owner_link,
+        });
+        console.log("Set the state data")
+        console.log(this.state)
     }
 }

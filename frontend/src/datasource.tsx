@@ -8,8 +8,9 @@ export class GiftListDatasource {
         this.rootURL = rootURL;
     }
 
-    public createNewGiftList(payload: IGiftListCreationPayload): Promise<IGiftList> {
-        return axios.post(this.constructURL("/api/gift-lists/"), payload);
+    public async createNewGiftList(payload: IGiftListCreationPayload): Promise<IGiftList> {
+        const response = await axios.post(this.constructURL("/api/gift-lists/"), payload);
+        return response.data;
     }
 
     public async getGiftListForOwner(giftListSlug: string): Promise<IGiftList> {

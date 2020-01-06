@@ -20,7 +20,7 @@ class App extends React.Component {
             <Route path="/manage/:slug([A-Za-z0-9]{12})">
               <ManagePage datasource={this.datasource} />
             </Route>
-            <Route path="/">
+            <Route>
               <Homepage datasource={this.datasource} />
             </Route>
           </Switch>

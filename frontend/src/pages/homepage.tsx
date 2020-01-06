@@ -1,7 +1,7 @@
 import { Card, Elevation, H3, H5, Icon } from "@blueprintjs/core";
 import { IconNames } from "@blueprintjs/icons";
 import React from "react";
-import { useRouteMatch } from "react-router-dom";
+import { RouteComponentProps, withRouter } from "react-router-dom";
 import { GiftListCreator } from "../components/giftListCreator";
 import { GiftListDatasource } from "../datasource";
 
@@ -9,7 +9,7 @@ interface IHomepageProps {
     datasource: GiftListDatasource;
 }
 
-export class Homepage extends React.Component<IHomepageProps> {
+class UnconnectedHomepage extends React.Component<IHomepageProps & RouteComponentProps> {
     public render() {
         return (
             <div>
@@ -35,3 +35,5 @@ export class Homepage extends React.Component<IHomepageProps> {
         );
     }
 }
+
+export const Homepage = withRouter(UnconnectedHomepage);
