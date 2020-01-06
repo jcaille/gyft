@@ -18,7 +18,7 @@ class App extends React.Component {
         <div className="description-column-container">
           <Card elevation={Elevation.TWO} className="description-card">
             <Icon icon={IconNames.PEOPLE} iconSize={40} />
-            <H5>Create gift lists and share them</H5>
+            <H5>Create and collaborate on gift lists</H5>
           </Card>
           <Card elevation={Elevation.TWO} className="description-card">
             <Icon icon={IconNames.SHOP} iconSize={40} />
